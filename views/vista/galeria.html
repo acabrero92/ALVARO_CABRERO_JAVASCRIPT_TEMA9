@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería - Mi Sitio Web</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .gallery img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Barra de navegación -->
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="galeria.html" class="active">Galería</a></li>
+                <li><a href="presupuesto.html">Presupuesto</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Galería de Fotos</h1>
+        <div class="gallery">
+            <img src="imagenes/imagen1.jpg" alt="Imagen 1">
+            <img src="imagenes/imagen2.jpg" alt="Imagen 2">
+            <img src="imagenes/imagen3.jpg" alt="Imagen 3">
+            <img src="imagenes/imagen4.jpg" alt="Imagen 4">
+        </div>
+    </main>
+
+    <footer>
+        <!-- Footer -->
+        <div class="footer-container">
+            <div class="redes-sociales">
+                <a href="https://twitter.com/tu_cuenta" target="_blank"><img src="images/redes-sociales/twitter.jpg" alt="Twitter"></a>
+                <a href="https://facebook.com/tu_cuenta" target="_blank"><img src="images/redes-sociales/facebook.jpg" alt="Facebook"></a>
+                <a href="https://instagram.com/tu_cuenta" target="_blank"><img src="images/redes-sociales/instagram.jpg" alt="Instagram"></a>
+            </div>
+            <p>Dirección de la empresa - Aviso legal</p>
+        </div>
+    </footer>
+</body>
+</html>
+

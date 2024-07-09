@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Mi Sitio Web</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <style>
+        #map {
+            height: 400px;
+            margin-top: 20px;
+        }
+    </style>
+    <!-- Incluir Leaflet.js desde un CDN -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="../../index.html">Inicio</a></li>
+                <li><a href="galeria.html">Galería</a></li>
+                <li><a href="presupuesto.html">Presupuesto</a></li>
+                <li><a href="contacto.html" class="active">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Contacto</h1>
+        <div id="map"></div>
+        <script src="../../js/scripts.js"></script>
+        <script>
+            // Inicializar el mapa
+            var map = L.map('map').setView([40.416775, -3.70379], 13); // Coordenadas de Madrid, España y nivel de zoom
+
+            // Añadir una capa de OpenStreetMap
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+
+            // Marcar la ubicación de tu empresa
+            var marker = L.marker([40.416775, -3.70379]).addTo(map)
+                .bindPopup("<b>Aquí está nuestra empresa</b>").openPopup();
+        </script>
+    </main>
+    <footer>
+        <!-- Incluir footer común -->
+        <div id="footer-container"></div>
+        <script src="../../js/scripts.js"></script>
+        <script>
+            // Cargar el contenido del footer
+            fetch('../../footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-container').innerHTML = data;
+                });
+        </script>
+    </footer>
+</body>
+</html>
+

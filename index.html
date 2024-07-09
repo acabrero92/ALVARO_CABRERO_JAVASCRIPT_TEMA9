@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio - Mi Sitio Web</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/scripts.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">Inicio</a></li>
+                <li><a href="views/vista/galeria.html">Galería</a></li>
+                <li><a href="views/vista/presupuesto.html">Presupuesto</a></li>
+                <li><a href="views/vista/contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Bienvenidos a Mi Sitio Web</h1>
+        
+        <!-- Sección de noticias -->
+        <section id="noticias">
+            <h2>Últimas Noticias</h2>
+            <div id="noticias-container"></div>
+        </section>
+        
+        <!-- Otras secciones -->
+    </main>
+    <footer>
+        <!-- Incluir footer común -->
+        <div id="footer-container"></div>
+        <script>
+            // Cargar el contenido del footer
+            fetch('footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-container').innerHTML = data;
+                });
+
+            // Cargar noticias desde el archivo JSON
+            fetch('data/noticias.json')
+                .then(response => response.json())
+                .then(data => {
+                    let noticiasContainer = document.getElementById('noticias-container');
+                    data.forEach(noticia => {
+                        noticiasContainer.innerHTML += `
+                            <article>
+                                <h3>${noticia.titulo}</h3>
+                                <p><em>${noticia.fecha}</em></p>
+                                <p>${noticia.contenido}</p>
+                            </article>
+                        `;
+                    });
+                });
+        </script>
+    </footer>
+</body>
+</html>
