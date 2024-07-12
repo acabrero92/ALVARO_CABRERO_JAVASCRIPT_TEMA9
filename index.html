@@ -3,59 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio - Mi Sitio Web</title>
+    <title>Camisetas Cabrero - Inicio</title>
     <link rel="stylesheet" href="css/styles.css">
-    <script src="js/scripts.js" defer></script>
+    <style>
+        body {
+            margin: 0;
+        }
+        .header-spacer {
+            height: 60px;
+        }
+    </style>
 </head>
 <body>
     <header>
         <nav>
             <ul>
                 <li><a href="index.html" class="active">Inicio</a></li>
-                <li><a href="views/vista/galeria.html">Galería</a></li>
-                <li><a href="views/vista/presupuesto.html">Presupuesto</a></li>
-                <li><a href="views/vista/contacto.html">Contacto</a></li>
+                <li><a href="views/galeria.html">Galería</a></li>
+                <li><a href="views/presupuesto.html">Presupuesto</a></li>
+                <li><a href="views/contacto.html">Contacto</a></li>
             </ul>
         </nav>
     </header>
+    <div class="header-spacer"></div>
     <main>
-        <h1>Bienvenidos a Mi Sitio Web</h1>
-        
-        <!-- Sección de noticias -->
+        <section>
+            <h1>Bienvenidos a Camisetas Cabrero</h1>
+            <p>Las mejores camisetas personalizadas.</p>
+        </section>
+        <section>
+            <h2>Sobre Nosotros</h2>
+            <p>Somos una empresa dedicada a la personalización de camisetas.</p>
+        </section>
+        <section>
+            <h2>Promociones</h2>
+            <p>Aprovecha nuestras ofertas especiales en camisetas.</p>
+        </section>
         <section id="noticias">
             <h2>Últimas Noticias</h2>
-            <div id="noticias-container"></div>
+            <div id="news-container"></div>
         </section>
-        
-        <!-- Otras secciones -->
     </main>
     <footer>
-        <!-- Incluir footer común -->
-        <div id="footer-container"></div>
-        <script>
-            // Cargar el contenido del footer
-            fetch('footer.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('footer-container').innerHTML = data;
-                });
-
-            // Cargar noticias desde el archivo JSON
-            fetch('data/noticias.json')
+        <div class="footer-container">
+            <div class="redes-sociales">
+                <a href="https://twitter.com/tu_cuenta" target="_blank"><img src="imagenes/redes-sociales/twitter.jpg" alt="Twitter" width="30" height="30"></a>
+                <a href="https://facebook.com/tu_cuenta" target="_blank"><img src="imagenes/redes-sociales/facebook.jpg" alt="Facebook" width="30" height="30"></a>
+                <a href="https://instagram.com/tu_cuenta" target="_blank"><img src="imagenes/redes-sociales/instagram.jpg" alt="Instagram" width="30" height="30"></a>
+            </div>
+            <p>C/Gardenia 68 Linares (Jaén) - Aviso legal</p>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('noticias.json')
                 .then(response => response.json())
                 .then(data => {
-                    let noticiasContainer = document.getElementById('noticias-container');
-                    data.forEach(noticia => {
-                        noticiasContainer.innerHTML += `
-                            <article>
-                                <h3>${noticia.titulo}</h3>
-                                <p><em>${noticia.fecha}</em></p>
-                                <p>${noticia.contenido}</p>
-                            </article>
-                        `;
+                    const newsContainer = document.getElementById('news-container');
+                    data.noticias.forEach(noticia => {
+                        const noticiaDiv = document.createElement('div');
+                        noticiaDiv.innerHTML = `<h3>${noticia.titulo}</h3><p>${noticia.contenido}</p>`;
+                        newsContainer.appendChild(noticiaDiv);
                     });
                 });
-        </script>
-    </footer>
+        });
+    </script>
 </body>
 </html>

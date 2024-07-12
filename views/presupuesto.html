@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presupuesto - Camisetas Cabrero</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="galeria.html">Galería</a></li>
+                <li><a href="presupuesto.html" class="active">Presupuesto</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="header-spacer"></div>
+    <main>
+        <h1>Presupuesto</h1>
+        <form id="presupuestoForm">
+            <h2>Datos de contacto</h2>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+            <br>
+            <label for="apellidos">Apellidos:</label>
+            <input type="text" id="apellidos" name="apellidos" required>
+            <br>
+            <label for="telefono">Teléfono:</label>
+            <input type="tel" id="telefono" name="telefono" required>
+            <br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <h2>Presupuesto</h2>
+            <label for="producto">Producto:</label>
+            <select id="producto" name="producto" required>
+                <option value="10">Camiseta Básica - $10</option>
+                <option value="15">Camiseta Premium - $15</option>
+                <option value="20">Camiseta Edición Limitada - $20</option>
+            </select>
+            <br>
+            <label for="plazo">Plazo de entrega (días):</label>
+            <input type="number" id="plazo" name="plazo" min="1" required>
+            <br>
+            <label>Extras:</label>
+            <br>
+            <input type="checkbox" id="extra1" name="extra" value="10">
+            <label for="extra1">Diseño Personalizado - $10</label>
+            <br>
+            <input type="checkbox" id="extra2" name="extra" value="5">
+            <label for="extra2">Envío Express - $5</label>
+            <br>
+            <input type="checkbox" id="extra3" name="extra" value="7">
+            <label for="extra3">Embalaje Premium - $7</label>
+            <br>
+            <h2>Presupuesto Final</h2>
+            <p id="total">Total: $0</p>
+            <input type="checkbox" id="condiciones" name="condiciones" required>
+            <label for="condiciones">Acepto las condiciones de privacidad</label>
+            <br>
+            <button type="submit">Enviar</button>
+            <button type="reset">Resetear</button>
+        </form>
+    </main>
+    <footer>
+        <div class="footer-container">
+            <div class="redes-sociales">
+                <a href="https://twitter.com/tu_cuenta" target="_blank"><img src="../imagenes/redes-sociales/twitter.jpg" alt="Twitter" width="30" height="30"></a>
+                <a href="https://facebook.com/tu_cuenta" target="_blank"><img src="../imagenes/redes-sociales/facebook.jpg" alt="Facebook" width="30" height="30"></a>
+                <a href="https://instagram.com/tu_cuenta" target="_blank"><img src="../imagenes/redes-sociales/instagram.jpg" alt="Instagram" width="30" height="30"></a>
+            </div>
+            <p>C/Gardenia 68 Linares (Jaén) - Aviso legal</p>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('presupuestoForm');
+            const total = document.getElementById('total');
+            const producto = document.getElementById('producto');
+            const plazo = document.getElementById('plazo');
+            const extras = document.querySelectorAll('input[name="extra"]');
+
+            function calcularTotal() {
+                let totalValue = parseFloat(producto.value);
+                totalValue += parseFloat(plazo.value);
+                extras.forEach(extra => {
+                    if (extra.checked) {
+                        totalValue += parseFloat(extra.value);
+                    }
+                });
+                total.textContent = 'Total: $' + totalValue.toFixed(2);
+            }
+
+            form.addEventListener('change', calcularTotal);
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+                alert('Formulario enviado. Total: ' + total.textContent);
+            });
+        });
+    </script>
+</body>
+</html>
