@@ -5,14 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Camisetas Cabrero - Inicio</title>
     <link rel="stylesheet" href="css/styles.css">
-    <style>
-        body {
-            margin: 0;
-        }
-        .header-spacer {
-            height: 60px;
-        }
-    </style>
 </head>
 <body>
     <header>
@@ -47,26 +39,13 @@
     <footer>
         <div class="footer-container">
             <div class="redes-sociales">
-                <a href="https://twitter.com/tu_cuenta" target="_blank"><img src="imagenes/redes-sociales/twitter.jpg" alt="Twitter" width="30" height="30"></a>
-                <a href="https://facebook.com/tu_cuenta" target="_blank"><img src="imagenes/redes-sociales/facebook.jpg" alt="Facebook" width="30" height="30"></a>
-                <a href="https://instagram.com/tu_cuenta" target="_blank"><img src="imagenes/redes-sociales/instagram.jpg" alt="Instagram" width="30" height="30"></a>
+                <a href="https://twitter.com/tu_cuenta" target="_blank"><img src="imagenes/twitter.jpg" alt="Twitter" width="30" height="30"></a>
+                <a href="https://facebook.com/tu_cuenta" target="_blank"><img src="imagenes/facebook.jpg" alt="Facebook" width="30" height="30"></a>
+                <a href="https://instagram.com/tu_cuenta" target="_blank"><img src="imagenes/instagram.jpg" alt="Instagram" width="30" height="30"></a>
             </div>
             <p>C/Gardenia 68 Linares (Jaén) - Aviso legal</p>
         </div>
     </footer>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            fetch('noticias.json')
-                .then(response => response.json())
-                .then(data => {
-                    const newsContainer = document.getElementById('news-container');
-                    data.noticias.forEach(noticia => {
-                        const noticiaDiv = document.createElement('div');
-                        noticiaDiv.innerHTML = `<h3>${noticia.titulo}</h3><p>${noticia.contenido}</p>`;
-                        newsContainer.appendChild(noticiaDiv);
-                    });
-                });
-        });
-    </script>
+    <script src="js/main.js"></script>
 </body>
 </html>

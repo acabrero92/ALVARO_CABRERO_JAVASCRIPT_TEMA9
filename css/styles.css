@@ -1,62 +1,160 @@
-/* General Styles */
+/* Estilos generales */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #f2f2f2;
 }
 
 header {
     background-color: #333;
-    color: white;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
+    color: #fff;
+    padding: 10px 0;
 }
 
 header nav ul {
-    list-style: none;
-    padding: 0;
+    list-style-type: none;
     margin: 0;
-    display: flex;
-    justify-content: space-around;
+    padding: 0;
+    text-align: center;
 }
 
 header nav ul li {
-    padding: 14px 20px;
+    display: inline;
+    margin-right: 20px;
 }
 
 header nav ul li a {
-    color: white;
     text-decoration: none;
+    color: #fff;
+    padding: 5px 10px;
 }
 
 header nav ul li a.active {
     background-color: #555;
 }
 
-main {
+.main-content {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #fff;
     padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.footer-container {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-container .redes-sociales {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.footer-container .redes-sociales a {
+    margin: 0 10px;
+}
+
+.footer-container p {
+    margin: 0;
+}
+
+/* Estilos específicos para formularios */
+form {
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+form input[type="text"],
+form input[type="tel"],
+form input[type="email"],
+form select {
+    width: calc(100% - 12px);
+    padding: 6px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+form input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+form button {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+form button[type="submit"] {
+    margin-right: 10px;
+}
+
+form button[type="reset"] {
+    background-color: #ccc;
+    color: #333;
+}
+
+/* Estilos específicos para presupuesto.html */
+form h2 {
+    align-self: flex-start;
+    margin-top: 20px;
+}
+
+form p#resultado {
+    align-self: flex-start;
+    margin-top: 20px;
+}
+
+/* Estilos específicos para index.html */
+section {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+/* Estilos generales */
+
+/* Establecer altura mínima para que el footer se mantenga en la parte inferior */
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1; /* Ocupa todo el espacio restante */
 }
 
 footer {
     background-color: #333;
     color: white;
-    padding: 10px;
     text-align: center;
-}
-
-.footer-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.redes-sociales img {
-    margin: 0 10px;
-}
-
-.gallery img {
-    margin: 10px;
-    border: 1px solid #ccc;
+    padding: 20px 0;
 }

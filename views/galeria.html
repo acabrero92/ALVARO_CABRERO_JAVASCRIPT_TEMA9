@@ -5,7 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Galería - Camisetas Cabrero</title>
     <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/lightbox.css">
+    <style>
+        /* Estilos adicionales para la galería */
+        .gallery {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .gallery img {
+            max-width: 100%;
+            max-height: 80vh;
+            cursor: pointer;
+        }
+        .controls {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -18,34 +40,22 @@
             </ul>
         </nav>
     </header>
-    <div class="header-spacer"></div>
-    <main>
-        <h1>Galería</h1>
-        <div class="gallery">
-            <a href="../imagenes/imagen1.jpg" data-lightbox="galeria" data-title="Imagen 1">
-                <img src="../imagenes/imagen1.jpg" alt="Imagen 1" width="300" height="200">
-            </a>
-            <a href="../imagenes/imagen2.jpg" data-lightbox="galeria" data-title="Imagen 2">
-                <img src="../imagenes/imagen2.jpg" alt="Imagen 2" width="300" height="200">
-            </a>
-            <a href="../imagenes/imagen3.jpg" data-lightbox="galeria" data-title="Imagen 3">
-                <img src="../imagenes/imagen3.jpg" alt="Imagen 3" width="300" height="200">
-            </a>
-            <a href="../imagenes/imagen4.jpg" data-lightbox="galeria" data-title="Imagen 4">
-                <img src="../imagenes/imagen4.jpg" alt="Imagen 4" width="300" height="200">
-            </a>
+    <main class="gallery">
+        <div class="controls">
+            <button id="prevBtn">Anterior</button>
+            <button id="nextBtn">Siguiente</button>
         </div>
     </main>
     <footer>
         <div class="footer-container">
             <div class="redes-sociales">
-                <a href="https://twitter.com/tu_cuenta" target="_blank"><img src="../imagenes/redes-sociales/twitter.jpg" alt="Twitter" width="30" height="30"></a>
-                <a href="https://facebook.com/tu_cuenta" target="_blank"><img src="../imagenes/redes-sociales/facebook.jpg" alt="Facebook" width="30" height="30"></a>
-                <a href="https://instagram.com/tu_cuenta" target="_blank"><img src="../imagenes/redes-sociales/instagram.jpg" alt="Instagram" width="30" height="30"></a>
+                <a href="https://twitter.com/tu_cuenta" target="_blank"><img src="../imagenes/twitter.jpg" alt="Twitter" width="30" height="30"></a>
+                <a href="https://facebook.com/tu_cuenta" target="_blank"><img src="../imagenes/facebook.jpg" alt="Facebook" width="30" height="30"></a>
+                <a href="https://instagram.com/tu_cuenta" target="_blank"><img src="../imagenes/instagram.jpg" alt="Instagram" width="30" height="30"></a>
             </div>
             <p>C/Gardenia 68 Linares (Jaén) - Aviso legal</p>
         </div>
     </footer>
-    <script src="../js/lightbox-plus-jquery.min.js"></script>
+    <script src="../js/gallery.js"></script>
 </body>
 </html>

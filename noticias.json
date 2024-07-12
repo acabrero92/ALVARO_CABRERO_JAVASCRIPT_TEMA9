@@ -2,19 +2,19 @@
     "noticias": [
         {
             "titulo": "Nueva Colección de Verano",
-            "contenido": "Descubre nuestra nueva colección de camisetas para el verano."
+            "contenido": "Descubre nuestra nueva colección de camisetas de verano con diseños exclusivos."
         },
         {
-            "titulo": "Descuento del 20%",
-            "contenido": "Aprovecha nuestro descuento del 20% en todas las camisetas."
-        },
-        {
-            "titulo": "Personalización Gratis",
-            "contenido": "Personaliza tu camiseta sin coste adicional durante este mes."
+            "titulo": "Descuentos en Camisetas",
+            "contenido": "Aprovecha nuestros descuentos del 20% en todas las camisetas hasta fin de mes."
         },
         {
             "titulo": "Envío Gratis",
-            "contenido": "Obtén envío gratis en pedidos superiores a 50€."
+            "contenido": "Ofrecemos envío gratis en pedidos superiores a $50."
+        },
+        {
+            "titulo": "Personalización de Camisetas",
+            "contenido": "Personaliza tu camiseta con nuestro servicio de diseño exclusivo."
         }
     ]
 }

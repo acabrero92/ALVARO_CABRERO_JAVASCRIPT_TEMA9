@@ -24,13 +24,36 @@
         <h1>Contacto</h1>
         <div id="map" style="height: 400px;"></div>
         <script>
-            var map = L.map('map').setView([38.095, -3.635], 13);
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            }).addTo(map);
-            L.marker([38.095, -3.635]).addTo(map)
-                .bindPopup('Camisetas Cabrero<br>C/Gardenia 68, Linares, Jaén')
-                .openPopup();
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(position => {
+                    const userLat = position.coords.latitude;
+                    const userLng = position.coords.longitude;
+
+                    const map = L.map('map').setView([38.095, -3.635], 13);
+                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                    }).addTo(map);
+
+                    const marker = L.marker([38.095, -3.635]).addTo(map)
+                        .bindPopup('Camisetas Cabrero<br>C/Gardenia 68, Linares, Jaén')
+                        .openPopup();
+
+                    const userMarker = L.marker([userLat, userLng]).addTo(map)
+                        .bindPopup('Tu ubicación')
+                        .openPopup();
+
+                    const routeControl = L.Routing.control({
+                        waypoints: [
+                            L.latLng(userLat, userLng),
+                            L.latLng(38.095, -3.635)
+                        ],
+                        createMarker: function() { return null; },
+                        routeWhileDragging: true
+                    }).addTo(map);
+                });
+            } else {
+                alert('Geolocalización no soportada por tu navegador.');
+            }
         </script>
         <h2>Datos de contacto</h2>
         <p>Dirección: C/Gardenia 68, Linares, Jaén</p>
@@ -40,13 +63,13 @@
     <footer>
         <div class="footer-container">
             <div class="redes-sociales">
-                <a href="https://twitter.com/tu_cuenta" target="_blank"><img src="../imagenes/redes-sociales/twitter.jpg" alt="Twitter" width="30" height="30"></a>
-                <a href="https://facebook.com/tu_cuenta" target="_blank"><img src="../imagenes/redes-sociales/facebook.jpg" alt="Facebook" width="30" height="30"></a>
-                <a href="https://instagram.com/tu_cuenta" target="_blank"><img src="../imagenes/redes-sociales/instagram.jpg" alt="Instagram" width="30" height="30"></a>
+                <a href="https://twitter.com/tu_cuenta" target="_blank"><img src="../imagenes/twitter.jpg" alt="Twitter" width="30" height="30"></a>
+                <a href="https://facebook.com/tu_cuenta" target="_blank"><img src="../imagenes/facebook.jpg" alt="Facebook" width="30" height="30"></a>
+                <a href="https://instagram.com/tu_cuenta" target="_blank"><img src="../imagenes/instagram.jpg" alt="Instagram" width="30" height="30"></a>
             </div>
             <p>C/Gardenia 68 Linares (Jaén) - Aviso legal</p>
         </div>
     </footer>
+    <script src="../js/contacto.js"></script>
 </body>
 </html>
-
